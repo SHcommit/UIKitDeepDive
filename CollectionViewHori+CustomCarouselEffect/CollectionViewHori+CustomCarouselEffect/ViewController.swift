@@ -7,12 +7,8 @@
 
 import UIKit
 
-let colors: [UIColor] = [
-  .blue,.black,.brown,.cyan,.systemPink,
-  .blue,.black,.brown,.cyan,.systemPink,
-  .blue,.black,.brown,.cyan,.systemPink,
-  .blue,.black,.brown,.cyan,.systemPink,
-  .blue,.black,.brown,.cyan,.systemPink]
+let lists: [UIColor] = [.blue,.black,.brown,.cyan,.systemPink]
+let colors: [UIColor] = (0..<5*5).map{ lists[$0%5] }
 
 class ViewController: UIViewController {
   
@@ -22,6 +18,7 @@ class ViewController: UIViewController {
   let effect = UIBlurEffect(style: .dark)
   var blurView: UIVisualEffectView! {
     didSet {
+      
       view.addSubview(blurView)
       blurView.frame = view.bounds
     }
@@ -47,16 +44,17 @@ class ViewController: UIViewController {
     collectionView.delegate = self
     collectionView.decelerationRate = .fast
     setupConstraints()
-
   }
 }
 
 
 //MARK: - Collection view data source
 extension ViewController: UICollectionViewDataSource {
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return colors.count
   }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath)
@@ -73,7 +71,9 @@ extension ViewController: UICollectionViewDataSource {
   
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout {
+  
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
@@ -91,33 +91,42 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     return 0
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumLineSpacingForSectionAt section: Int
+  ) -> CGFloat {
     return 17
   }
   
 }
 
 extension ViewController: UIScrollViewDelegate {
-  
-  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+  func scrollViewWillEndDragging(
+    _ scrollView: UIScrollView,
+    withVelocity velocity: CGPoint,
+    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    
     let cellArea = CGFloat(Int(view.frame.width)/3 + 17)
     var offset = targetContentOffset.pointee
     let idx = round(offset.x/cellArea)
     offset = CGPoint(x: idx*cellArea, y: 0)
     targetContentOffset.pointee = offset
   }
-  
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+  func scrollViewDidScroll(
+    _ scrollView: UIScrollView) {
     let cellArea = CGFloat(Int(view.frame.width)/3 + 17)
     let curScrollOffset = scrollView.contentOffset.x
-    
+
     if lastScrollOffset < curScrollOffset {
-      let idx = collectionView.contentOffset.x / cellArea
+      let idx = curScrollOffset / cellArea
       let indexPath = IndexPath(item: Int(round(idx)), section: 0)
       if let cell = collectionView.cellForItem(at: indexPath) {
         transformCellOriginSize(cell) {
           print("오른쪽 갈 때 현재꺼 키움")
-          self.view.backgroundColor = colors[indexPath.row]
+          self.view.backgroundColor = colors[indexPath.row].withAlphaComponent(0.5)
         }
       }
       let prevIndexPath = IndexPath(
@@ -135,12 +144,12 @@ extension ViewController: UIScrollViewDelegate {
           print("왼쪽 갈 때 현재꺼 축소")
         }
       }
-      let prevIdx = collectionView.contentOffset.x / cellArea
+      let prevIdx = curScrollOffset / cellArea
       let prevIndexPath = IndexPath(item: Int(round(prevIdx)), section: 0)
       if let prevCell = collectionView.cellForItem(at: prevIndexPath) {
         transformCellOriginSize(prevCell) {
           print("왼쪽 갈 때 이전 cell 키움")
-          self.view.backgroundColor = colors[indexPath.row]
+          self.view.backgroundColor = colors[indexPath.row].withAlphaComponent(0.5)
         }
       }
     }
@@ -151,7 +160,7 @@ extension ViewController: UIScrollViewDelegate {
 
 //MARK: - Helpers
 extension ViewController {
-  
+
   func transformCellOriginSize(
     _ cell: UICollectionViewCell,
     completion: @escaping () -> Void) {
@@ -163,7 +172,7 @@ extension ViewController {
         completion()
       }
   }
-  
+
   func transformCellMinifyWithAnimation(
     _ cell: UICollectionViewCell,
     completion: @escaping () -> Void) {
@@ -175,7 +184,7 @@ extension ViewController {
           completion()
         }
     }
-  
+
   func setupConstraints() {
     NSLayoutConstraint.activate([
       collectionView.topAnchor.constraint(
@@ -184,13 +193,13 @@ extension ViewController {
         equalTo: view.leftAnchor),
       collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
       collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/2)])
-    
+
     NSLayoutConstraint.activate([
       blurView.topAnchor.constraint(equalTo: view.topAnchor),
       blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
       blurView.widthAnchor.constraint(equalTo: view.widthAnchor)
     ])
-    
+
   }
 }
