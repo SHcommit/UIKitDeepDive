@@ -8,11 +8,11 @@
 import UIKit
 
 let colors: [UIColor] = [
-  .black,.blue,.brown,.cyan,.systemPink,
-  .black,.blue,.brown,.cyan,.systemPink,
-  .black,.blue,.brown,.cyan,.systemPink,
-  .black,.blue,.brown,.cyan,.systemPink,
-  .black,.blue,.brown,.cyan,.systemPink]
+  .blue,.black,.brown,.cyan,.systemPink,
+  .blue,.black,.brown,.cyan,.systemPink,
+  .blue,.black,.brown,.cyan,.systemPink,
+  .blue,.black,.brown,.cyan,.systemPink,
+  .blue,.black,.brown,.cyan,.systemPink]
 
 class ViewController: UIViewController {
   
@@ -117,6 +117,7 @@ extension ViewController: UIScrollViewDelegate {
       if let cell = collectionView.cellForItem(at: indexPath) {
         transformCellOriginSize(cell) {
           print("오른쪽 갈 때 현재꺼 키움")
+          self.view.backgroundColor = colors[indexPath.row]
         }
       }
       let prevIndexPath = IndexPath(
