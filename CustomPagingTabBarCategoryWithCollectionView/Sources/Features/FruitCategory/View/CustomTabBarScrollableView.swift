@@ -14,11 +14,11 @@ class CustomTabBarScrollableView: UIView {
   let colors = {
     let colors: [UIColor] = [
       .systemPink, .systemBlue, .systemRed, .systemBlue,
-      .systemGray, .systemMint, .systemTeal, .systemBrown,
-      .systemOrange, .systemFill, .systemMint, .systemBrown,
+      .systemGray, .systemTeal, .systemTeal, .systemBrown,
+      .systemOrange, .systemFill, .systemTeal, .systemBrown,
       .systemPink, .systemBlue, .systemRed, .systemBlue,
-      .systemGray, .systemMint, .systemTeal, .systemBrown,
-      .systemOrange, .systemFill, .systemMint, .systemBrown
+      .systemGray, .systemTeal, .systemTeal, .systemBrown,
+      .systemOrange, .systemFill, .systemTeal, .systemBrown
     ]
     return colors
       .map { $0.withAlphaComponent(0.7) }
