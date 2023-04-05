@@ -11,11 +11,10 @@ import Combine
 final class CategoryViewController: UIViewController {
   lazy var customTabBarView = CustomTabBarScrollableView()
   let spaceView = {
-    return UIView().setup{
+    return UIView().setup {
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
   }()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
@@ -23,35 +22,30 @@ final class CategoryViewController: UIViewController {
   }
 }
 
-//MARK: - Helpers
+// MARK: - Helpers
 extension CategoryViewController {
   func setupUI() {
     view.backgroundColor = .white
   }
 }
 
-//MARK: - ConfigureSubviewCase
+// MARK: - ConfigureSubviewCase
 extension CategoryViewController: ConfigureSubviewsCase {
-  
   func configureSubviews() {
     addSubviews()
     setupSubviewsConstraints()
   }
-  
   func addSubviews() {
-    _=[customTabBarView,spaceView].map{view.addSubview($0)}
+    _=[customTabBarView, spaceView].map { view.addSubview($0) }
   }
-  
 }
 
-//MARK: - SetupSubviewsConstraints
+// MARK: - SetupSubviewsConstraints
 extension CategoryViewController: SetupSubviewsConstraints {
-  
   func setupSubviewsConstraints() {
     setupCustomTabBarViewConstraints()
     setupSpaceConstraints()
   }
-  
   func setupCustomTabBarViewConstraints() {
     NSLayoutConstraint.activate([
       customTabBarView.topAnchor.constraint(
@@ -62,15 +56,10 @@ extension CategoryViewController: SetupSubviewsConstraints {
       customTabBarView.heightAnchor.constraint(equalToConstant: 50+7+17+7)
     ])
   }
-  
   func setupSpaceConstraints() {
-    NSLayoutConstraint.activate([
-      spaceView.topAnchor.constraint(equalTo: customTabBarView.bottomAnchor),
+    NSLayoutConstraint.activate([ spaceView.topAnchor.constraint(equalTo: customTabBarView.bottomAnchor),
       spaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       spaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      
-      spaceView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    ])
+      spaceView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
   }
-  
 }

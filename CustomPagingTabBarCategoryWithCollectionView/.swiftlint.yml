@@ -1,0 +1,22 @@
+//
+//  .swiftlint.yml
+//  CustomPagingTabBarCategory
+//
+//  Created by 양승현 on 2023/04/06.
+//
+
+excluded:
+    - Pods
+    - CustomPagingTabBarCategoryTests
+    - CustomPagingTabBarCategoryUITests
+    - Libraries
+    
+disabled_rules:
+    - leading_whitespace
+    - trailing_whitespace
+    - line_length
+    - multiple_closures_with_trailing_closure
+    - identifier_name
+    
+line_length:
+  ignores_comments: true

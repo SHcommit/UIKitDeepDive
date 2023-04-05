@@ -8,30 +8,24 @@
 import UIKit
 
 class CustomTabBarCell: UICollectionViewCell {
-  
-  //MARK: - Properties
+  // MARK: - Properties
   var nameLabel: UILabel?
   var rectView: UIView?
-  
-  //MARK: - Initialization
+  // MARK: - Initialization
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
-  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
   override func prepareForReuse() {
     nameLabel?.text = ""
     rectView?.backgroundColor = .clear
   }
-  
 }
 
-//MARK: - Helpers
+// MARK: - Helpers
 extension CustomTabBarCell {
-  
   func setupUI(_ name: String, _ color: UIColor) {
     setupNameLabel(name)
     setupRectView(color)
@@ -39,21 +33,17 @@ extension CustomTabBarCell {
   }
 }
 
-
-//MARK: - ConfigureSubviewsCase
+// MARK: - ConfigureSubviewsCase
 extension CustomTabBarCell: ConfigureSubviewsCase {
-  
   func configureSubviews() {
     addSubviews()
     setupSubviewsConstraints()
   }
-  
   func addSubviews() { }
-  
 }
-//MARK: -  SetupLayouts
+
+// MARK: - SetupLayouts
 extension CustomTabBarCell {
-  
   func setupNameLabel(_ text: String) {
     nameLabel = UILabel().setup {
       $0.text = text
@@ -63,35 +53,29 @@ extension CustomTabBarCell {
       addSubview($0)
     }
   }
-  
-  func setupRectView(_ color: UIColor){
+  func setupRectView(_ color: UIColor) {
     rectView = UIView().setup {
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.layer.cornerRadius = 12
       $0.backgroundColor = color
-      addSubview($0)
-    }
+      addSubview($0) }
   }
-  
 }
 
-//MARK: - SetupSubviewsConstraints
+// MARK: - SetupSubviewsConstraints
 extension CustomTabBarCell: SetupSubviewsConstraints {
-  
   func setupSubviewsConstraints() {
     guard let name = nameLabel,
           let rect = rectView else { return }
-    
     NSLayoutConstraint.activate([
       rect.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7),
       rect.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
       rect.heightAnchor.constraint(equalToConstant: 50),
       rect.widthAnchor.constraint(equalToConstant: 50)])
-    
     NSLayoutConstraint.activate([
       name.topAnchor.constraint(equalTo: rect.bottomAnchor),
       name.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-      name.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)])
+      name.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+    ])
   }
-  
 }
