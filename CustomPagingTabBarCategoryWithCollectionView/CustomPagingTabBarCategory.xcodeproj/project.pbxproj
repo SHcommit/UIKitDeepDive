@@ -18,6 +18,7 @@
 		1519675C29DDD5860027C82F /* ViewLayoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675A29DDD5860027C82F /* ViewLayoutProtocols.swift */; };
 		1519676229DDD7C40027C82F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1519676129DDD7C40027C82F /* .swiftlint.yml */; };
 		15C6377F29E1B40800F8F870 /* FruitsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */; };
+		15C6378229E1D5C500F8F870 /* ScrollIndicatorConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */; };
 		6937493901971FA115F09E04 /* Pods_CustomPagingTabBarCategory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6A4DE52B7E9E4B84ACC36 /* Pods_CustomPagingTabBarCategory.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1519675A29DDD5860027C82F /* ViewLayoutProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutProtocols.swift; sourceTree = "<group>"; };
 		1519676129DDD7C40027C82F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsScrollView.swift; sourceTree = "<group>"; };
+		15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorConstraint.swift; sourceTree = "<group>"; };
 		29E75096AAB12F77DACA2964 /* Pods-CustomPagingTabBarCategory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomPagingTabBarCategory.release.xcconfig"; path = "Target Support Files/Pods-CustomPagingTabBarCategory/Pods-CustomPagingTabBarCategory.release.xcconfig"; sourceTree = "<group>"; };
 		36C28445FB647D04A3CB7613 /* Pods-CustomPagingTabBarCategory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomPagingTabBarCategory.debug.xcconfig"; path = "Target Support Files/Pods-CustomPagingTabBarCategory/Pods-CustomPagingTabBarCategory.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D6A4DE52B7E9E4B84ACC36 /* Pods_CustomPagingTabBarCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomPagingTabBarCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 		1519675229DDD54B0027C82F /* FruitCategory */ = {
 			isa = PBXGroup;
 			children = (
+				15C6378029E1D5B800F8F870 /* Model */,
 				1519675F29DDD5BD0027C82F /* View */,
 				1519675E29DDD5B50027C82F /* ViewModel */,
 				1519675D29DDD5AE0027C82F /* ViewController */,
@@ -159,6 +162,14 @@
 				15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15C6378029E1D5B800F8F870 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		608BA170D73BE1F006220142 /* Pods */ = {
@@ -301,6 +312,7 @@
 				1519675729DDD56A0027C82F /* FruitsTabBarCell.swift in Sources */,
 				1519673829DDD3BA0027C82F /* AppDelegate.swift in Sources */,
 				1519675629DDD56A0027C82F /* FruitsTabBarScrollableView.swift in Sources */,
+				15C6378229E1D5C500F8F870 /* ScrollIndicatorConstraint.swift in Sources */,
 				1519673A29DDD3BA0027C82F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

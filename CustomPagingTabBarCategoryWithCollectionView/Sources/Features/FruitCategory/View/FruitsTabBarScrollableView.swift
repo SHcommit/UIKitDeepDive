@@ -21,6 +21,7 @@ class FruitsTabBarScrollableView: UIView {
   var FruitsTabBarWidth: CGFloat = 0
   
   // MARK: - Properties
+  
   let colors = {
     let colors: [UIColor] = [
       .systemPink, .systemBlue, .systemRed, .systemBlue,
@@ -43,6 +44,8 @@ class FruitsTabBarScrollableView: UIView {
      "Peach", "carrot", "pie", "kiwi"]
   }()
   
+  var delegate: FruitsScrollViewDelegate?
+  
   lazy var collectionView = {
     let layout = UICollectionViewFlowLayout().set {
       $0.scrollDirection = .horizontal
@@ -59,16 +62,18 @@ class FruitsTabBarScrollableView: UIView {
       }
   }()
   
-  var delegate: FruitsScrollViewDelegate?
-  
-  lazy var scrollView = FruitsScrollView(scrollViewWidth: FruitsTabBarWidth)
+  lazy var scrollView = FruitsScrollView(
+    viewWidth: FruitsTabBarWidth
+  ).set {
+    self.delegate = $0
+  }
   
   // MARK: - Initialization
   required init?(coder: NSCoder) {
     fatalError("구현x")
   }
   
-  override init(frame: CGRect) {
+  private override init(frame: CGRect) {
     super.init(frame: .zero)
     self.setupUI()
   }

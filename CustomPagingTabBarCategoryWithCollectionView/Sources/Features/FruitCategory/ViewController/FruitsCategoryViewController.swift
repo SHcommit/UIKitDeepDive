@@ -10,7 +10,8 @@ import Combine
 
 final class FruitsCategoryViewController: UIViewController {
   
-  lazy var fruitsTabBarView = FruitsTabBarScrollableView(fruitsTabBarWidth: view.bounds.width)
+  lazy var fruitsTabBarView = FruitsTabBarScrollableView(
+    fruitsTabBarWidth: view.bounds.width)
   
   let spaceView = {
     return UIView().set {
