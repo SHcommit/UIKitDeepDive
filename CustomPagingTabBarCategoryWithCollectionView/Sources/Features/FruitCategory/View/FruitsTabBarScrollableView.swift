@@ -7,9 +7,19 @@
 
 import UIKit
 
-class CustomTabBarScrollableView: UIView {
+protocol FruitsScrollViewDelegate: AnyObject {
+  
+  func didScroll(_ scrollView: UIScrollView)
+  
+}
+
+class FruitsTabBarScrollableView: UIView {
+  
   // MARK: - Constraints
-  let tabBarCellID = "CustomTabBarScrollableViewID"
+  let TabBarCellID = "CustomTabBarScrollableViewID"
+  let FruiltsCellHeight: CGFloat = 50+7+17+7
+  var FruitsTabBarWidth: CGFloat = 0
+  
   // MARK: - Properties
   let colors = {
     let colors: [UIColor] = [
@@ -22,89 +32,112 @@ class CustomTabBarScrollableView: UIView {
     ]
     return colors
       .map { $0.withAlphaComponent(0.7) }
-}()
-  let fruits = [
-    "Banana", "Apple", "Grapes", "orange",
-    "Melon", "Lime", "Cherry", "Avocado", "Peach",
-    "carrot", "pie", "kiwi",
-    "Banana", "Apple", "Grapes", "orange",
-    "Melon", "Lime", "Cherry", "Avocado", "Peach",
-    "carrot", "pie", "kiwi"]
+  }()
+  
+  let fruits = {
+    ["Banana", "Apple", "Grapes", "orange",
+     "Melon", "Lime", "Cherry", "Avocado",
+     "Peach", "carrot", "pie", "kiwi",
+     "Banana", "Apple", "Grapes", "orange",
+     "Melon", "Lime", "Cherry", "Avocado",
+     "Peach", "carrot", "pie", "kiwi"]
+  }()
+  
   lazy var collectionView = {
-    let layout = UICollectionViewFlowLayout().setup {
+    let layout = UICollectionViewFlowLayout().set {
       $0.scrollDirection = .horizontal
     }
+
     return UICollectionView(frame: .zero, collectionViewLayout: layout)
-      .setup {
+      .set {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.dataSource = self
         $0.delegate = self
-        $0.showsHorizontalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = true
         // $0.isPagingEnabled = true
         $0.decelerationRate = .fast
       }
   }()
+  
+  var delegate: FruitsScrollViewDelegate?
+  
+  lazy var scrollView = FruitsScrollView(scrollViewWidth: FruitsTabBarWidth)
+  
   // MARK: - Initialization
   required init?(coder: NSCoder) {
     fatalError("구현x")
   }
+  
   override init(frame: CGRect) {
     super.init(frame: .zero)
     self.setupUI()
+  }
+  
+  convenience init(fruitsTabBarWidth: CGFloat) {
+    self.init(frame: .zero)
+    self.FruitsTabBarWidth = fruitsTabBarWidth
     configureSubviews()
   }
+  
 }
 
 // MARK: - Helpers
-extension CustomTabBarScrollableView {
+extension FruitsTabBarScrollableView {
+  
   func setupUI() {
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.register(
-      CustomTabBarCell.self,
-      forCellWithReuseIdentifier: tabBarCellID)
+      FruitsTabBarCell.self,
+      forCellWithReuseIdentifier: TabBarCellID)
     collectionView.backgroundColor = .clear
   }
+  
 }
 
 // MARK: - UICollectionViewDataSource
-extension CustomTabBarScrollableView: UICollectionViewDataSource {
+extension FruitsTabBarScrollableView: UICollectionViewDataSource {
+  
   func collectionView(
     _ collectionView: UICollectionView,
     numberOfItemsInSection section: Int
   ) -> Int {
     return fruits.count
   }
+  
   func collectionView(
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(
-      withReuseIdentifier: tabBarCellID,
-      for: indexPath) as? CustomTabBarCell ?? CustomTabBarCell()
+      withReuseIdentifier: TabBarCellID,
+      for: indexPath) as? FruitsTabBarCell ?? FruitsTabBarCell()
     let index = indexPath.row
     cell.setupUI(fruits[index], colors[index])
     return cell
   }
+  
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension CustomTabBarScrollableView: UICollectionViewDelegateFlowLayout {
+extension FruitsTabBarScrollableView: UICollectionViewDelegateFlowLayout {
 
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
-    let textSize = UILabel().setup {
+    let textSize = UILabel().set {
       $0.text = fruits[indexPath.row]
       $0.font = .systemFont(ofSize: 14)
       $0.sizeToFit()
     }.frame
-    let (textWidth, textHeight) = (textSize.width, textSize.height)
+    
+    let (textWidth, _) = (textSize.width, textSize.height)
     return CGSize(
-      width: textWidth + 7 < 50 + 14 ? 50 + 7 : textWidth + 7,
-      height: 50+7+textHeight+7)
+      width: textWidth + 7 < 50 + 14 ? 50 + 7 : Int(round(textWidth)) + 7,
+      height: Int(FruiltsCellHeight))
   }
+  
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
@@ -112,6 +145,7 @@ extension CustomTabBarScrollableView: UICollectionViewDelegateFlowLayout {
   ) -> CGFloat {
     return 0
   }
+  
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
@@ -119,40 +153,56 @@ extension CustomTabBarScrollableView: UICollectionViewDelegateFlowLayout {
   ) -> CGFloat {
     return 0
   }
+  
 }
 
-extension CustomTabBarScrollableView: UIScrollViewDelegate {
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+extension FruitsTabBarScrollableView: UIScrollViewDelegate {
+  // 이건 실시간으로 스크롤할때 좌표얻는거임
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    delegate?.didScroll(scrollView)
     guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
     let width = layout.itemSize.width
     let page = Int(collectionView.contentOffset.x/width)
-    let indexPath = IndexPath(item: page, section: 0)
-    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-    print(page)
+    _ = IndexPath(item: page, section: 0)
   }
+  
+  // 얜 감속끝났을때
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
 }
 
 // MARK: - ConfigureSubviewsCase
-extension CustomTabBarScrollableView: ConfigureSubviewsCase {
+extension FruitsTabBarScrollableView: ConfigureSubviewsCase {
+  
   func configureSubviews() {
     addSubviews()
     setupSubviewsConstraints()
   }
+  
   func addSubviews() {
-    addSubview(collectionView)
+    _=[scrollView, collectionView].map { addSubview($0) }
   }
+  
 }
 
 // MARK: - SetupSubviewsConstraints
-extension CustomTabBarScrollableView: SetupSubviewsConstraints {
+extension FruitsTabBarScrollableView: SetupSubviewsConstraints {
+  
   func setupSubviewsConstraints() {
     setupCollectionViewConstraints()
   }
+  
   func setupCollectionViewConstraints() {
     NSLayoutConstraint.activate([
       collectionView.topAnchor.constraint(equalTo: topAnchor),
       collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
       collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
+      collectionView.heightAnchor.constraint(
+        equalToConstant: FruiltsCellHeight)])
+    NSLayoutConstraint.activate([
+      scrollView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 4),
+      scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)])
   }
 }

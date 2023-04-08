@@ -8,58 +8,72 @@
 import UIKit
 import Combine
 
-final class CategoryViewController: UIViewController {
-  lazy var customTabBarView = CustomTabBarScrollableView()
+final class FruitsCategoryViewController: UIViewController {
+  
+  lazy var fruitsTabBarView = FruitsTabBarScrollableView(fruitsTabBarWidth: view.bounds.width)
+  
   let spaceView = {
-    return UIView().setup {
+    return UIView().set {
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
   }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     configureSubviews()
+    self.navigationController?.navigationBar.backgroundColor = .yellow
   }
+  
 }
 
 // MARK: - Helpers
-extension CategoryViewController {
+extension FruitsCategoryViewController {
+  
   func setupUI() {
     view.backgroundColor = .white
   }
+  
 }
 
 // MARK: - ConfigureSubviewCase
-extension CategoryViewController: ConfigureSubviewsCase {
+extension FruitsCategoryViewController: ConfigureSubviewsCase {
+  
   func configureSubviews() {
     addSubviews()
     setupSubviewsConstraints()
   }
+  
   func addSubviews() {
-    _=[customTabBarView, spaceView].map { view.addSubview($0) }
+    _=[fruitsTabBarView, spaceView].map { view.addSubview($0) }
   }
+  
 }
 
 // MARK: - SetupSubviewsConstraints
-extension CategoryViewController: SetupSubviewsConstraints {
+extension FruitsCategoryViewController: SetupSubviewsConstraints {
+  
   func setupSubviewsConstraints() {
     setupCustomTabBarViewConstraints()
     setupSpaceConstraints()
   }
+  
   func setupCustomTabBarViewConstraints() {
     NSLayoutConstraint.activate([
-      customTabBarView.topAnchor.constraint(
+      fruitsTabBarView.topAnchor.constraint(
         equalTo: view.safeAreaLayoutGuide.topAnchor),
-      customTabBarView.leadingAnchor.constraint(
+      fruitsTabBarView.leadingAnchor.constraint(
         equalTo: view.leadingAnchor),
-      customTabBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      customTabBarView.heightAnchor.constraint(equalToConstant: 50+7+17+7)
+      fruitsTabBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      fruitsTabBarView.heightAnchor.constraint(equalToConstant: 50+7+17+7+4+3.2)
     ])
   }
+  
   func setupSpaceConstraints() {
-    NSLayoutConstraint.activate([ spaceView.topAnchor.constraint(equalTo: customTabBarView.bottomAnchor),
+    NSLayoutConstraint.activate([ spaceView.topAnchor.constraint(equalTo: fruitsTabBarView.bottomAnchor, constant: 4),
       spaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       spaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       spaceView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
   }
+  
 }

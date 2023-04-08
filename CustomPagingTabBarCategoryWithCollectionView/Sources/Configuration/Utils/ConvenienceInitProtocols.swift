@@ -14,7 +14,7 @@ extension NSObject: ConvenienceInit { }
 
 extension ConvenienceInit where Self: AnyObject {
   @inlinable
-  internal func setup(_ apply: (Self) throws -> Void) rethrows -> Self {
+  internal func set(_ apply: (Self) throws -> Void) rethrows -> Self {
     try apply(self)
     return self
   }

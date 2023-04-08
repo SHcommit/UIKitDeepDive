@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTabBarCell: UICollectionViewCell {
+class FruitsTabBarCell: UICollectionViewCell {
   // MARK: - Properties
   var nameLabel: UILabel?
   var rectView: UIView?
@@ -25,7 +25,7 @@ class CustomTabBarCell: UICollectionViewCell {
 }
 
 // MARK: - Helpers
-extension CustomTabBarCell {
+extension FruitsTabBarCell {
   func setupUI(_ name: String, _ color: UIColor) {
     setupNameLabel(name)
     setupRectView(color)
@@ -34,7 +34,7 @@ extension CustomTabBarCell {
 }
 
 // MARK: - ConfigureSubviewsCase
-extension CustomTabBarCell: ConfigureSubviewsCase {
+extension FruitsTabBarCell: ConfigureSubviewsCase {
   func configureSubviews() {
     addSubviews()
     setupSubviewsConstraints()
@@ -43,9 +43,9 @@ extension CustomTabBarCell: ConfigureSubviewsCase {
 }
 
 // MARK: - SetupLayouts
-extension CustomTabBarCell {
+extension FruitsTabBarCell {
   func setupNameLabel(_ text: String) {
-    nameLabel = UILabel().setup {
+    nameLabel = UILabel().set {
       $0.text = text
       $0.textAlignment = .center
       $0.font = .systemFont(ofSize: 14)
@@ -54,7 +54,7 @@ extension CustomTabBarCell {
     }
   }
   func setupRectView(_ color: UIColor) {
-    rectView = UIView().setup {
+    rectView = UIView().set {
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.layer.cornerRadius = 12
       $0.backgroundColor = color
@@ -63,7 +63,7 @@ extension CustomTabBarCell {
 }
 
 // MARK: - SetupSubviewsConstraints
-extension CustomTabBarCell: SetupSubviewsConstraints {
+extension FruitsTabBarCell: SetupSubviewsConstraints {
   func setupSubviewsConstraints() {
     guard let name = nameLabel,
           let rect = rectView else { return }
