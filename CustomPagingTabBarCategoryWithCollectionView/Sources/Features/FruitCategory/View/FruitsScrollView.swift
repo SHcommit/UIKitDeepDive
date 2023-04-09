@@ -19,10 +19,7 @@ final class FruitsScrollView: UIView {
   private var FruitsScrollViewWidth: CGFloat = 50.0
   
   // MARK: - Properties
-  private let background = UIView().set {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .lightGray.withAlphaComponent(0.2)
-  }
+  var prevScrollViewWidth = 0
   private lazy var scrollIndicator: UIView = UIView().set {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.backgroundColor = .gray
@@ -79,8 +76,9 @@ extension FruitsScrollView {
   }
   
   func updateScrollView(dynamicWidth width: CGFloat, offset: CGFloat) {
-//    scrollConstraint?.leading?.constant = offset + ScrollLeadingInset
-//    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth + FruitsCellSpacing/2
+    updateScrollView(currentPosition: offset)
+    scrollConstraint?.leading?.constant = offset + ScrollLeadingInset
+    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth + FruitsCellSpacing/2
     scrollConstraint?.width?.constant = width
     UIView.animate(
       withDuration: 0.2,
@@ -110,16 +108,16 @@ extension FruitsScrollView: FruitsScrollViewDelegate {
     updateScrollView(currentPosition: offset)
     print(offset)
     /// 이제 남은건 스크롤 뷰의 사이즈임.
-    if offset < 50 && offset >= 0 {
-      dynamicWidth = 20
-      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
-    } else if offset < 150 && offset >= 50 {
-      dynamicWidth = 30
-      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
-    } else if offset < 250 && offset >= 150 {
-      dynamicWidth = 60
-      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
-    }
+//    if offset < 50 && offset >= 0 {
+//      dynamicWidth = 20
+//      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+//    } else if offset < 150 && offset >= 50 {
+//      dynamicWidth = 30
+//      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+//    } else if offset < 250 && offset >= 150 {
+//      dynamicWidth = 60
+//      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+//    }
   }
 }
 
@@ -132,7 +130,7 @@ extension FruitsScrollView: ConfigureSubviewsCase {
   }
   
   func addSubviews() {
-    _=[background, scrollIndicator].map { addSubview($0) }
+    _=[scrollIndicator].map { addSubview($0) }
     bringSubviewToFront(scrollIndicator)
   }
   
@@ -142,16 +140,7 @@ extension FruitsScrollView: ConfigureSubviewsCase {
 extension FruitsScrollView: SetupSubviewsConstraints {
   
   func setupSubviewsConstraints() {
-    setupBackgroundConstraints()
     setupScrollViewConstraints()
-  }
-  
-  func setupBackgroundConstraints() {
-    NSLayoutConstraint.activate([
-      background.topAnchor.constraint(equalTo: topAnchor),
-      background.leadingAnchor.constraint(equalTo: leadingAnchor),
-      background.trailingAnchor.constraint(equalTo: trailingAnchor),
-      background.bottomAnchor.constraint(equalTo: bottomAnchor)])
   }
   
   func setupScrollViewConstraints() {

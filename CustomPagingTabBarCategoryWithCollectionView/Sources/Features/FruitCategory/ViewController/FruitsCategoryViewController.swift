@@ -23,7 +23,7 @@ final class FruitsCategoryViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
     configureSubviews()
-    self.navigationController?.navigationBar.backgroundColor = .yellow
+    
   }
   
 }
@@ -32,6 +32,7 @@ final class FruitsCategoryViewController: UIViewController {
 extension FruitsCategoryViewController {
   
   func setupUI() {
+    navigationItem.title = "CustomScroll"
     view.backgroundColor = .white
   }
   
