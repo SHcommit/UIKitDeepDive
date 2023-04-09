@@ -1,0 +1,6 @@
+framework module Pods_CustomScrollIndicatorWithCollectionVIew {
+  umbrella header "Pods-CustomScrollIndicatorWithCollectionVIew-umbrella.h"
+
+  export *
+  module * { export * }
+}

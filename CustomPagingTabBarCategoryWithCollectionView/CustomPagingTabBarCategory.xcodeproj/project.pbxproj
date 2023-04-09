@@ -11,14 +11,14 @@
 		1519673A29DDD3BA0027C82F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519673929DDD3BA0027C82F /* SceneDelegate.swift */; };
 		1519674129DDD3BA0027C82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1519674029DDD3BA0027C82F /* Assets.xcassets */; };
 		1519674429DDD3BA0027C82F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1519674229DDD3BA0027C82F /* LaunchScreen.storyboard */; };
-		1519675629DDD56A0027C82F /* FruitsTabBarScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675329DDD56A0027C82F /* FruitsTabBarScrollableView.swift */; };
-		1519675729DDD56A0027C82F /* FruitsTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675429DDD56A0027C82F /* FruitsTabBarCell.swift */; };
-		1519675829DDD56A0027C82F /* FruitsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675529DDD56A0027C82F /* FruitsCategoryViewController.swift */; };
 		1519675B29DDD5860027C82F /* ConvenienceInitProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675929DDD5860027C82F /* ConvenienceInitProtocols.swift */; };
 		1519675C29DDD5860027C82F /* ViewLayoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519675A29DDD5860027C82F /* ViewLayoutProtocols.swift */; };
 		1519676229DDD7C40027C82F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1519676129DDD7C40027C82F /* .swiftlint.yml */; };
-		15C6377F29E1B40800F8F870 /* FruitsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */; };
-		15C6378229E1D5C500F8F870 /* ScrollIndicatorConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */; };
+		15C637C829E3378E00F8F870 /* ScrollIndicatorConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C637C129E3378D00F8F870 /* ScrollIndicatorConstraint.swift */; };
+		15C637C929E3378E00F8F870 /* FruitsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C637C329E3378D00F8F870 /* FruitsScrollView.swift */; };
+		15C637CA29E3378E00F8F870 /* FruitsTabBarScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C637C429E3378D00F8F870 /* FruitsTabBarScrollableView.swift */; };
+		15C637CB29E3378E00F8F870 /* FruitsTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C637C529E3378D00F8F870 /* FruitsTabBarCell.swift */; };
+		15C637CC29E3378E00F8F870 /* FruitsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C637C729E3378D00F8F870 /* FruitsCategoryViewController.swift */; };
 		6937493901971FA115F09E04 /* Pods_CustomPagingTabBarCategory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6A4DE52B7E9E4B84ACC36 /* Pods_CustomPagingTabBarCategory.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,14 +29,14 @@
 		1519674029DDD3BA0027C82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1519674329DDD3BA0027C82F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1519674529DDD3BA0027C82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1519675329DDD56A0027C82F /* FruitsTabBarScrollableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsTabBarScrollableView.swift; sourceTree = "<group>"; };
-		1519675429DDD56A0027C82F /* FruitsTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsTabBarCell.swift; sourceTree = "<group>"; };
-		1519675529DDD56A0027C82F /* FruitsCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsCategoryViewController.swift; sourceTree = "<group>"; };
 		1519675929DDD5860027C82F /* ConvenienceInitProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvenienceInitProtocols.swift; sourceTree = "<group>"; };
 		1519675A29DDD5860027C82F /* ViewLayoutProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutProtocols.swift; sourceTree = "<group>"; };
 		1519676129DDD7C40027C82F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsScrollView.swift; sourceTree = "<group>"; };
-		15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorConstraint.swift; sourceTree = "<group>"; };
+		15C637C129E3378D00F8F870 /* ScrollIndicatorConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorConstraint.swift; sourceTree = "<group>"; };
+		15C637C329E3378D00F8F870 /* FruitsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsScrollView.swift; sourceTree = "<group>"; };
+		15C637C429E3378D00F8F870 /* FruitsTabBarScrollableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsTabBarScrollableView.swift; sourceTree = "<group>"; };
+		15C637C529E3378D00F8F870 /* FruitsTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsTabBarCell.swift; sourceTree = "<group>"; };
+		15C637C729E3378D00F8F870 /* FruitsCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsCategoryViewController.swift; sourceTree = "<group>"; };
 		29E75096AAB12F77DACA2964 /* Pods-CustomPagingTabBarCategory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomPagingTabBarCategory.release.xcconfig"; path = "Target Support Files/Pods-CustomPagingTabBarCategory/Pods-CustomPagingTabBarCategory.release.xcconfig"; sourceTree = "<group>"; };
 		36C28445FB647D04A3CB7613 /* Pods-CustomPagingTabBarCategory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomPagingTabBarCategory.debug.xcconfig"; path = "Target Support Files/Pods-CustomPagingTabBarCategory/Pods-CustomPagingTabBarCategory.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D6A4DE52B7E9E4B84ACC36 /* Pods_CustomPagingTabBarCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomPagingTabBarCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +76,8 @@
 		1519673629DDD3BA0027C82F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				15C637BD29E3378D00F8F870 /* Features */,
 				1519675029DDD5330027C82F /* Configuration */,
-				1519674F29DDD52D0027C82F /* Features */,
 				1519674B29DDD40A0027C82F /* SupportingFile */,
 			);
 			path = Sources;
@@ -103,14 +103,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1519674F29DDD52D0027C82F /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				1519675229DDD54B0027C82F /* FruitCategory */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		1519675029DDD5330027C82F /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,48 +120,57 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		1519675229DDD54B0027C82F /* FruitCategory */ = {
+		15C637BD29E3378D00F8F870 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				15C6378029E1D5B800F8F870 /* Model */,
-				1519675F29DDD5BD0027C82F /* View */,
-				1519675E29DDD5B50027C82F /* ViewModel */,
-				1519675D29DDD5AE0027C82F /* ViewController */,
+				15C637BE29E3378D00F8F870 /* FruitCategory */,
+			);
+			name = Features;
+			path = ../../CustomScrollIndicatorWithCollectionVIew/Sources/Features;
+			sourceTree = "<group>";
+		};
+		15C637BE29E3378D00F8F870 /* FruitCategory */ = {
+			isa = PBXGroup;
+			children = (
+				15C637BF29E3378D00F8F870 /* ViewModel */,
+				15C637C029E3378D00F8F870 /* Model */,
+				15C637C229E3378D00F8F870 /* View */,
+				15C637C629E3378D00F8F870 /* ViewController */,
 			);
 			path = FruitCategory;
 			sourceTree = "<group>";
 		};
-		1519675D29DDD5AE0027C82F /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1519675529DDD56A0027C82F /* FruitsCategoryViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1519675E29DDD5B50027C82F /* ViewModel */ = {
+		15C637BF29E3378D00F8F870 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1519675F29DDD5BD0027C82F /* View */ = {
+		15C637C029E3378D00F8F870 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1519675329DDD56A0027C82F /* FruitsTabBarScrollableView.swift */,
-				1519675429DDD56A0027C82F /* FruitsTabBarCell.swift */,
-				15C6377E29E1B40800F8F870 /* FruitsScrollView.swift */,
+				15C637C129E3378D00F8F870 /* ScrollIndicatorConstraint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15C637C229E3378D00F8F870 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15C637C329E3378D00F8F870 /* FruitsScrollView.swift */,
+				15C637C429E3378D00F8F870 /* FruitsTabBarScrollableView.swift */,
+				15C637C529E3378D00F8F870 /* FruitsTabBarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		15C6378029E1D5B800F8F870 /* Model */ = {
+		15C637C629E3378D00F8F870 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				15C6378129E1D5C500F8F870 /* ScrollIndicatorConstraint.swift */,
+				15C637C729E3378D00F8F870 /* FruitsCategoryViewController.swift */,
 			);
-			path = Model;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		608BA170D73BE1F006220142 /* Pods */ = {
@@ -305,15 +306,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C6377F29E1B40800F8F870 /* FruitsScrollView.swift in Sources */,
+				15C637CC29E3378E00F8F870 /* FruitsCategoryViewController.swift in Sources */,
 				1519675C29DDD5860027C82F /* ViewLayoutProtocols.swift in Sources */,
-				1519675829DDD56A0027C82F /* FruitsCategoryViewController.swift in Sources */,
 				1519675B29DDD5860027C82F /* ConvenienceInitProtocols.swift in Sources */,
-				1519675729DDD56A0027C82F /* FruitsTabBarCell.swift in Sources */,
+				15C637CB29E3378E00F8F870 /* FruitsTabBarCell.swift in Sources */,
+				15C637CA29E3378E00F8F870 /* FruitsTabBarScrollableView.swift in Sources */,
 				1519673829DDD3BA0027C82F /* AppDelegate.swift in Sources */,
-				1519675629DDD56A0027C82F /* FruitsTabBarScrollableView.swift in Sources */,
-				15C6378229E1D5C500F8F870 /* ScrollIndicatorConstraint.swift in Sources */,
 				1519673A29DDD3BA0027C82F /* SceneDelegate.swift in Sources */,
+				15C637C929E3378E00F8F870 /* FruitsScrollView.swift in Sources */,
+				15C637C829E3378E00F8F870 /* ScrollIndicatorConstraint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
