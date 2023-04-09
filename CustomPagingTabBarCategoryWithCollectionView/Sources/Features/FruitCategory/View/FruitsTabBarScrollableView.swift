@@ -11,13 +11,15 @@ protocol FruitsScrollViewDelegate: AnyObject {
   
   func didScroll(_ scrollView: UIScrollView)
   
+  
 }
 
 class FruitsTabBarScrollableView: UIView {
   
   // MARK: - Constraints
   let TabBarCellID = "CustomTabBarScrollableViewID"
-  let FruiltsCellHeight: CGFloat = 50+7+17+7
+  let FruitsCellHeight: CGFloat = 50+7+17+7
+  let FruitsCellSpacing: Int = 14
   var FruitsTabBarWidth: CGFloat = 0
   
   // MARK: - Properties
@@ -47,7 +49,7 @@ class FruitsTabBarScrollableView: UIView {
   var delegate: FruitsScrollViewDelegate?
   
   lazy var collectionView = {
-    let layout = UICollectionViewFlowLayout().set {
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().set {
       $0.scrollDirection = .horizontal
     }
 
@@ -56,7 +58,7 @@ class FruitsTabBarScrollableView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.dataSource = self
         $0.delegate = self
-        $0.showsHorizontalScrollIndicator = true
+        $0.showsHorizontalScrollIndicator = false
         // $0.isPagingEnabled = true
         $0.decelerationRate = .fast
       }
@@ -140,8 +142,9 @@ extension FruitsTabBarScrollableView: UICollectionViewDelegateFlowLayout {
     
     let (textWidth, _) = (textSize.width, textSize.height)
     return CGSize(
-      width: textWidth + 7 < 50 + 14 ? 50 + 7 : Int(round(textWidth)) + 7,
-      height: Int(FruiltsCellHeight))
+      width: Int(textWidth)+FruitsCellSpacing<50 + FruitsCellSpacing*2
+        ? 50 + FruitsCellSpacing : Int(round(textWidth)) + FruitsCellSpacing,
+      height: Int(FruitsCellHeight))
   }
   
   func collectionView(
@@ -162,8 +165,8 @@ extension FruitsTabBarScrollableView: UICollectionViewDelegateFlowLayout {
   
 }
 
+// MARK: - UISCrollViewDeleagte
 extension FruitsTabBarScrollableView: UIScrollViewDelegate {
-  // 이건 실시간으로 스크롤할때 좌표얻는거임
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if collectionView == scrollView {
@@ -176,7 +179,10 @@ extension FruitsTabBarScrollableView: UIScrollViewDelegate {
   }
   
   // 얜 감속끝났을때
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+      
+  }
+  
 }
 
 // MARK: - ConfigureSubviewsCase
@@ -206,7 +212,7 @@ extension FruitsTabBarScrollableView: SetupSubviewsConstraints {
       collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
       collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
       collectionView.heightAnchor.constraint(
-        equalToConstant: FruiltsCellHeight)])
+        equalToConstant: FruitsCellHeight)])
     NSLayoutConstraint.activate([
       scrollView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 4),
       scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),

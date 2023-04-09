@@ -13,12 +13,10 @@ final class FruitsScrollView: UIView {
   private typealias ScrollConstraint = ScrollIndicatorConstraint
   
   private let FruitsScrollViewHeight = 3.2
+  private let ScrollLeadingInset = 3.0
+  private let FruitsCellSpacing = 14.0
   private var FruitsViewWidth: CGFloat
-  private var FruitsScrollViewWidth: CGFloat = 40.0 {
-    didSet {
-      updateScrollView(dynamicWidth: dynamicWidth)
-    }
-  }
+  private var FruitsScrollViewWidth: CGFloat = 50.0
   
   // MARK: - Properties
   private let background = UIView().set {
@@ -34,10 +32,10 @@ final class FruitsScrollView: UIView {
   
   var dynamicWidth: CGFloat {
     get {
-      return FruitsViewWidth
+      return FruitsScrollViewWidth
     }
     set {
-      FruitsViewWidth = newValue
+      FruitsScrollViewWidth = newValue
     }
   }
   
@@ -68,24 +66,29 @@ final class FruitsScrollView: UIView {
 extension FruitsScrollView {
   
   func updateScrollView(currentPosition offset: CGFloat) {
-    guard offset>=0 &&
-          offset<=FruitsViewWidth else { return }
-    scrollConstraint?.leading?.constant = offset
-    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth
+    guard offset>0 &&
+          offset < FruitsViewWidth - dynamicWidth - FruitsCellSpacing + ScrollLeadingInset else { return }
     
+    if offset == 0.0 {
+      // 초기 spacing
+      scrollConstraint?.leading?.constant = ScrollLeadingInset
+    } else {
+      scrollConstraint?.leading?.constant = offset + ScrollLeadingInset
+    }
+    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth + FruitsCellSpacing/2
   }
   
-  func updateScrollView(dynamicWidth width: CGFloat) {
+  func updateScrollView(dynamicWidth width: CGFloat, offset: CGFloat) {
+//    scrollConstraint?.leading?.constant = offset + ScrollLeadingInset
+//    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth + FruitsCellSpacing/2
+    scrollConstraint?.width?.constant = width
     UIView.animate(
-      withDuration: 0.3,
+      withDuration: 0.2,
       delay: 0,
-      options: .curveEaseOut,
+      options: .curveEaseIn,
       animations: { [weak self] in
         guard let self = self else { return }
-        scrollIndicator
-          .widthAnchor
-          .constraint(equalToConstant: width)
-          .isActive = true
+        layoutIfNeeded()
       })
   }
   
@@ -96,18 +99,28 @@ extension FruitsScrollView: FruitsScrollViewDelegate {
   
   func didScroll(_ scrollView: UIScrollView) {
     
-    /// print("test check")
     let contentOffsetX = scrollView.contentOffset.x
-    let scrollTotalX = scrollView.contentSize.width
-    let offset = contentOffsetX * FruitsViewWidth / scrollTotalX
+    let maximumContentOffsetX = scrollView.contentSize.width - scrollView.frame.width
+    guard contentOffsetX > 0.0 && contentOffsetX < maximumContentOffsetX else {
+      return
+    }
+    let contentSizeAndSpacing = FruitsCellSpacing + FruitsScrollViewWidth
+    let offset = contentOffsetX * (FruitsViewWidth - contentSizeAndSpacing) / maximumContentOffsetX
     /// 이걸 통해서 스크롤 뷰가 이동하는것 표시함.
     updateScrollView(currentPosition: offset)
-    
-    /// 이제 남은건 스크롤 뷰의 사이즈임.
-    /// updateScrollView(dynamicWidth: 100)
     print(offset)
+    /// 이제 남은건 스크롤 뷰의 사이즈임.
+    if offset < 50 && offset >= 0 {
+      dynamicWidth = 20
+      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+    } else if offset < 150 && offset >= 50 {
+      dynamicWidth = 30
+      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+    } else if offset < 250 && offset >= 150 {
+      dynamicWidth = 60
+      updateScrollView(dynamicWidth: dynamicWidth, offset: offset)
+    }
   }
-  
 }
 
 // MARK: - ConfigureSubviewsCase
@@ -142,19 +155,17 @@ extension FruitsScrollView: SetupSubviewsConstraints {
   }
   
   func setupScrollViewConstraints() {
-    // 이래하면 leading에 찰싹 달라붙는다.
-    // 원래는 392가 뷰 길이인데 스크롤 뷰 길이기 있기 때메 그거 더해야함.
-    // -392 + 40
     let constraints = ScrollConstraint(
       top: scrollIndicator.topAnchor.constraint(
         equalTo: topAnchor, constant: 0),
       leading: scrollIndicator.leadingAnchor.constraint(
-        greaterThanOrEqualTo: leadingAnchor, constant: 0),
+        greaterThanOrEqualTo: leadingAnchor,
+        constant: ScrollLeadingInset),
       trailing: scrollIndicator.trailingAnchor.constraint(
         lessThanOrEqualTo: trailingAnchor,
-        constant: -FruitsViewWidth + FruitsScrollViewWidth ),
+        constant: -FruitsViewWidth + dynamicWidth + FruitsCellSpacing/2 ),
       bottom: scrollIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
-      width: scrollIndicator.widthAnchor.constraint(equalToConstant: 40)
+      width: scrollIndicator.widthAnchor.constraint(equalToConstant: 50)
       )
     scrollConstraint = constraints
     _=constraints.makeList().map { $0?.isActive = true }
