@@ -8,9 +8,13 @@
 import UIKit
 
 struct ScrollIndicatorConstraint {
-  var Top: NSLayoutConstraint?
-  var Leading: NSLayoutConstraint?
-  var Trailing: NSLayoutConstraint?
-  var Bottom: NSLayoutConstraint?
-  var Width: NSLayoutConstraint?
+  var top: NSLayoutConstraint?
+  var leading: NSLayoutConstraint?
+  var trailing: NSLayoutConstraint?
+  var bottom: NSLayoutConstraint?
+  var width: NSLayoutConstraint?
+  
+  func makeList() -> [NSLayoutConstraint?] {
+    return [top, leading, trailing, bottom, width]
+  }
 }

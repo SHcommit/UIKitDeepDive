@@ -66,6 +66,7 @@ class FruitsTabBarScrollableView: UIView {
     viewWidth: FruitsTabBarWidth
   ).set {
     self.delegate = $0
+    $0.layoutIfNeeded()
   }
   
   // MARK: - Initialization
@@ -165,11 +166,13 @@ extension FruitsTabBarScrollableView: UIScrollViewDelegate {
   // 이건 실시간으로 스크롤할때 좌표얻는거임
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    delegate?.didScroll(scrollView)
-    guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-    let width = layout.itemSize.width
-    let page = Int(collectionView.contentOffset.x/width)
-    _ = IndexPath(item: page, section: 0)
+    if collectionView == scrollView {
+      delegate?.didScroll(scrollView)
+      guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+      let width = layout.itemSize.width
+      let page = Int(collectionView.contentOffset.x/width)
+      _ = IndexPath(item: page, section: 0)
+    }
   }
   
   // 얜 감속끝났을때

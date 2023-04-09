@@ -70,20 +70,9 @@ extension FruitsScrollView {
   func updateScrollView(currentPosition offset: CGFloat) {
     guard offset>=0 &&
           offset<=FruitsViewWidth else { return }
-    NSLayoutConstraint.activate([
-      scrollIndicator.topAnchor.constraint(equalTo: topAnchor),
-      scrollIndicator.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
-      scrollIndicator.trailingAnchor.constraint(
-        lessThanOrEqualTo: trailingAnchor,
-        constant: -FruitsViewWidth + offset + dynamicWidth ),
-      scrollIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
-      scrollIndicator.widthAnchor.constraint(equalToConstant: dynamicWidth)])
-//    scrollView
-//      .trailingAnchor
-//      .constraint(
-//        lessThanOrEqualTo: trailingAnchor,
-//        constant: -FruitsViewWidth + offset + dynamicWidth)
-//      .isActive = true
+    scrollConstraint?.leading?.constant = offset
+    scrollConstraint?.trailing?.constant = -FruitsViewWidth + offset + dynamicWidth
+    
   }
   
   func updateScrollView(dynamicWidth width: CGFloat) {
@@ -156,15 +145,19 @@ extension FruitsScrollView: SetupSubviewsConstraints {
     // 이래하면 leading에 찰싹 달라붙는다.
     // 원래는 392가 뷰 길이인데 스크롤 뷰 길이기 있기 때메 그거 더해야함.
     // -392 + 40
-    
-    NSLayoutConstraint.activate([
-      scrollIndicator.topAnchor.constraint(equalTo: topAnchor),
-      scrollIndicator.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
-      scrollIndicator.trailingAnchor.constraint(
+    let constraints = ScrollConstraint(
+      top: scrollIndicator.topAnchor.constraint(
+        equalTo: topAnchor, constant: 0),
+      leading: scrollIndicator.leadingAnchor.constraint(
+        greaterThanOrEqualTo: leadingAnchor, constant: 0),
+      trailing: scrollIndicator.trailingAnchor.constraint(
         lessThanOrEqualTo: trailingAnchor,
         constant: -FruitsViewWidth + FruitsScrollViewWidth ),
-      scrollIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
-      scrollIndicator.widthAnchor.constraint(equalToConstant: 40)])
+      bottom: scrollIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
+      width: scrollIndicator.widthAnchor.constraint(equalToConstant: 40)
+      )
+    scrollConstraint = constraints
+    _=constraints.makeList().map { $0?.isActive = true }
     
   }
   
