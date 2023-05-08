@@ -1,9 +1,9 @@
 author: Seunghyun Yang
 github_url: https://github.com/SHcommit
-github-file-prefix: https://github.com/SHcommit/UIKitDeepDive/tree/master/CustomCollectionVIew/CategoryPageView/docs
+github-file-prefix: https://github.com/SHcommit/UIKitDeepDive/tree/master/CustomCollectionVIew/CategoryPageView
 theme: apple
 module_version: 1.0.0
-xcodebuild_arguments: 
+xcodebuild_arguments:
   - -scheme
   - CategoryPageView
 hide_documentation_coverage: true
@@ -13,4 +13,3 @@ source:
   - Source
 include:
   - '**/*.swift'
-
