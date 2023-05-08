@@ -1,6 +1,6 @@
 author: Seunghyun Yang
 github_url: https://github.com/SHcommit
-github-file-prefix: https://github.com/SHcommit/UIKitDeepDive/master/
+github-file-prefix: https://github.com/SHcommit/UIKitDeepDive/tree/master/CustomCollectionVIew/CategoryPageView/docs
 theme: apple
 module_version: 1.0.0
 xcodebuild_arguments: 
