@@ -7,7 +7,7 @@ xcodebuild_arguments:
   - -scheme
   - CategoryPageView
 hide_documentation_coverage: true
-output: docs/
+output: docs/documentation
 
 source:
   - Source
