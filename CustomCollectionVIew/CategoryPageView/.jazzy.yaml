@@ -1,0 +1,16 @@
+author: Seunghyun Yang
+github_url: https://github.com/SHcommit
+github-file-prefix: https://github.com/SHcommit/UIKitDeepDive/master/
+theme: apple
+module_version: 1.0.0
+xcodebuild_arguments: 
+  - -scheme
+  - CategoryPageView
+hide_documentation_coverage: true
+output: docs/
+
+source:
+  - Source
+include:
+  - '**/*.swift'
+
