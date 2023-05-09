@@ -9,6 +9,9 @@ xcodebuild_arguments:
 hide_documentation_coverage: true
 output: docs/documentation
 
+# 검색 활성
+disable_search: false
+
 source:
   - Source
 include:
