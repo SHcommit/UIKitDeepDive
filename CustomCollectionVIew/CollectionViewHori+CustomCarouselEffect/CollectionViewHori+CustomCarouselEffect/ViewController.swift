@@ -63,6 +63,7 @@ extension ViewController: UICollectionViewDataSource {
     if indexPath.row != 0 {
       cell.transform = CGAffineTransform(scaleX: 1, y: 0.87)
     }
+    
     if indexPath.row == 0 {
       view.backgroundColor = colors[indexPath.row]
     }
