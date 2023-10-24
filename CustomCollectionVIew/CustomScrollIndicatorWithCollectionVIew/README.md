@@ -1,6 +1,6 @@
 ## Custom scroll indicator with collection view
 
-<img src="[https://github.com/IF-TG/iOS/assets/96910404/a13feb45-1dbe-4261-9895-e5cb505bba3d](https://github.com/SHcommit/UIKitDeepDive/assets/96910404/bfedf76e-8ffc-4059-aa51-0f5884eb140b)https://github.com/SHcommit/UIKitDeepDive/assets/96910404/bfedf76e-8ffc-4059-aa51-0f5884eb140b" width="250">|
+<img src="https://github.com/SHcommit/UIKitDeepDive/assets/96910404/99f6ee21-27ac-4422-87c1-77d2057d4195" width="250">|
 |:-:|
 |`구현 화면`|
 
