@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
   // MARK: - Propertie
   private let segment = RedIconBasedUnderbarSegmentedControl(
-    items: ["마시멜로","사과","포도"],
+    items: ["알림","공지사항","What's new"],
     underbarInfo: .init(height: 3, barColor: .orange, backgroundColor: .lightGray.withAlphaComponent(0.7)))
   
   // MARK: - Lifecycle
