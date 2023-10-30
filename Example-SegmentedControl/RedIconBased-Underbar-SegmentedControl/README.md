@@ -6,6 +6,6 @@
 
 - 사용자가 터치했다 가정-> 세그먼트 알림 아이콘 사라지는 동작 구현
 
-<img src="https://github.com/SHcommit/UIKitDeepDive/assets/96910404/7b2d63b8-82dd-4757-be09-b533ad7c8330"> |
+<img src="https://github.com/SHcommit/UIKitDeepDive/assets/96910404/0b94f4ec-c5c0-4903-aca3-9c4fe622e8f2"> |
 |:-:|
 |`구현 화면`|
