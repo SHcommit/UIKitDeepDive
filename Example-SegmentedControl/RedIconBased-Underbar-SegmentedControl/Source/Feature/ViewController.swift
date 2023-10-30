@@ -8,8 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
   // MARK: - Properties
+  private let colors: [UIColor] = [.yellow, .green.withAlphaComponent(0.6), .blue.withAlphaComponent(0.6)]
+  
   private let segment = RedIconBasedUnderbarSegmentedControl(items: ["마시멜로","사과","포도"], underbarInfo: .init(height: 3, barColor: .orange, backgroundColor: .lightGray.withAlphaComponent(0.7)))
+  
+  private lazy var detailsPages: [UIView] = (0..<3).map { index in
+    return {
+      $0.translatesAutoresizingMaskIntoConstraints = false
+      $0.backgroundColor = colors[index]
+      $0.layer.cornerRadius = 14
+      if index > 0 { $0.isHidden = true }
+      return $0
+    }(UIView(frame: .zero))
+  }
   
   // MARK: - Lifecycle
   override func viewDidLoad() {
@@ -22,18 +35,11 @@ class ViewController: UIViewController {
 private extension ViewController {
   func configureUI() {
     view.backgroundColor = .white
-    setSegmentPosition()
-    autoSelectEverySecond()
-  }
-  
-  func setSegmentPosition() {
-    view.addSubview(segment)
     segment.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      segment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      segment.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      segment.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      segment.heightAnchor.constraint(equalToConstant: 47)])
+    segment.selectedSegmentIndex = 0
+    setUI()
+    setConstraints()
+    autoSelectEverySecond()
   }
   
   func autoSelectEverySecond() {
@@ -49,5 +55,37 @@ private extension ViewController {
       /// 사용자가 알림 눌렀다고 가정
       self.segment.selectedSegmentIndex = 0
     })
+  }
+}
+  
+// MARK: - Layout
+private extension ViewController {
+  func setUI() {
+    _=[
+      segment,
+      detailsPages[0],
+      detailsPages[1],
+      detailsPages[2]
+    ].map {
+      view.addSubview($0)
+    }
+  }
+  
+  func setConstraints() {
+    let segmentConstraints = [
+      segment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      segment.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      segment.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      segment.heightAnchor.constraint(equalToConstant: 47)]
+    
+    let detailsPagesConstraints: [NSLayoutConstraint] = detailsPages
+      .map {
+        return [
+          $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
+          $0.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 14),
+          $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14),
+          $0.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14)]
+      }.flatMap { $0 }
+    NSLayoutConstraint.activate(segmentConstraints+detailsPagesConstraints)
   }
 }
