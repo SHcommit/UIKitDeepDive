@@ -12,6 +12,7 @@
 		151DF1482AEFED6300D5D55B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DF1472AEFED6300D5D55B /* ViewController.swift */; };
 		151DF14D2AEFED6400D5D55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151DF14C2AEFED6400D5D55B /* Assets.xcassets */; };
 		151DF1502AEFED6400D5D55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151DF14E2AEFED6400D5D55B /* LaunchScreen.storyboard */; };
+		151DF15A2AEFF16700D5D55B /* RedIconBasedUnderbarSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DF1592AEFF16700D5D55B /* RedIconBasedUnderbarSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		151DF14C2AEFED6400D5D55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151DF14F2AEFED6400D5D55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151DF1512AEFED6400D5D55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		151DF1592AEFF16700D5D55B /* RedIconBasedUnderbarSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedIconBasedUnderbarSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				151DF1472AEFED6300D5D55B /* ViewController.swift */,
+				151DF1592AEFF16700D5D55B /* RedIconBasedUnderbarSegmentedControl.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151DF15A2AEFF16700D5D55B /* RedIconBasedUnderbarSegmentedControl.swift in Sources */,
 				151DF1482AEFED6300D5D55B /* ViewController.swift in Sources */,
 				151DF1442AEFED6300D5D55B /* AppDelegate.swift in Sources */,
 				151DF1462AEFED6300D5D55B /* SceneDelegate.swift in Sources */,
