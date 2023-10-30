@@ -12,6 +12,7 @@
 		151DF1242AEF86D500D5D55B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DF1232AEF86D500D5D55B /* ViewController.swift */; };
 		151DF1292AEF86D600D5D55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151DF1282AEF86D600D5D55B /* Assets.xcassets */; };
 		151DF12C2AEF86D600D5D55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151DF12A2AEF86D600D5D55B /* LaunchScreen.storyboard */; };
+		151DF1362AEF9CBE00D5D55B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DF1352AEF9CBD00D5D55B /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		151DF1282AEF86D600D5D55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151DF12B2AEF86D600D5D55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151DF12D2AEF86D600D5D55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		151DF1352AEF9CBD00D5D55B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				151DF1282AEF86D600D5D55B /* Assets.xcassets */,
 				151DF12A2AEF86D600D5D55B /* LaunchScreen.storyboard */,
 				151DF12D2AEF86D600D5D55B /* Info.plist */,
+				151DF1352AEF9CBD00D5D55B /* UIImage+.swift */,
 			);
 			path = "Default-SegmentedControl";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				151DF1242AEF86D500D5D55B /* ViewController.swift in Sources */,
+				151DF1362AEF9CBE00D5D55B /* UIImage+.swift in Sources */,
 				151DF1202AEF86D500D5D55B /* AppDelegate.swift in Sources */,
 				151DF1222AEF86D500D5D55B /* SceneDelegate.swift in Sources */,
 			);

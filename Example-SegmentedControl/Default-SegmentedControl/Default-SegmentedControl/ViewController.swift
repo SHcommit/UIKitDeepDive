@@ -9,18 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
   // MARK: - Properties
-  private let segment = UISegmentedControl(items: ["cherry page", "orange page"])
+  private let segment = UISegmentedControl(items: ["Cherry Page", "Orange Page"])
   
   private let cherryView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .yellow.withAlphaComponent(0.7)
+    $0.backgroundColor = .systemPink.withAlphaComponent(0.7)
     $0.layer.cornerRadius = 7
     return $0
   }(UIView())
   
   private let orangeView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .systemPink.withAlphaComponent(0.7)
+    $0.backgroundColor = .orange
     $0.layer.cornerRadius = 7
     return $0
   }(UIView())
@@ -50,15 +50,18 @@ private extension ViewController {
   
   func setSegment() {
     segment.translatesAutoresizingMaskIntoConstraints = false
+    let image = UIImage()
+    let cherry = UIImage(named: "cherry")!
+    let orange = UIImage(named: "orange")!
+    segment.setImage(cherry.addText( "Cherry page", isImageBeforeText: true), forSegmentAt: 0)
+    segment.setImage(orange.addText("Orange page", isImageBeforeText: true), forSegmentAt: 1)
     segment.selectedSegmentIndex = 0
     segment.addTarget(self, action: #selector(didTapSegment), for: .valueChanged)
   }
   
-  func updateVisibleView(from: UIView, to: UIView) {
+  func updateVisibleView(from: UIView, to: UIView, moveX: CGFloat) {
     to.isHidden = false
     segment.isUserInteractionEnabled = false
-    let index = segment.selectedSegmentIndex
-    var moveX = index == 1 ? -view.bounds.width : view.bounds.width
     UIView.animate(
       withDuration: 0.38,
       delay: 0,
@@ -79,11 +82,12 @@ private extension ViewController {
   @objc func didTapSegment(_ sender: UISegmentedControl) {
     guard !isAnimationWorking else { return }
     isAnimationWorking.toggle()
+    let width = view.bounds.width
     guard segment.selectedSegmentIndex == 1 else {
-      updateVisibleView(from: orangeView, to: cherryView)
+      updateVisibleView(from: orangeView, to: cherryView, moveX: width)
       return
     }
-    updateVisibleView(from: cherryView, to: orangeView)
+    updateVisibleView(from: cherryView, to: orangeView, moveX: -width)
   }
 }
 
