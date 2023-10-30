@@ -38,7 +38,7 @@
 		151DF1372AEFED6300D5D55B = {
 			isa = PBXGroup;
 			children = (
-				151DF1422AEFED6300D5D55B /* RedIconBased-Underbar-SegmentedControl */,
+				151DF1422AEFED6300D5D55B /* Source */,
 				151DF1412AEFED6300D5D55B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,17 +51,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		151DF1422AEFED6300D5D55B /* RedIconBased-Underbar-SegmentedControl */ = {
+		151DF1422AEFED6300D5D55B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				151DF1432AEFED6300D5D55B /* AppDelegate.swift */,
-				151DF1452AEFED6300D5D55B /* SceneDelegate.swift */,
-				151DF1472AEFED6300D5D55B /* ViewController.swift */,
+				151DF1582AEFF11D00D5D55B /* Feature */,
+				151DF1572AEFF0ED00D5D55B /* Support */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		151DF1572AEFF0ED00D5D55B /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				151DF14C2AEFED6400D5D55B /* Assets.xcassets */,
+				151DF1452AEFED6300D5D55B /* SceneDelegate.swift */,
 				151DF14E2AEFED6400D5D55B /* LaunchScreen.storyboard */,
 				151DF1512AEFED6400D5D55B /* Info.plist */,
+				151DF1432AEFED6300D5D55B /* AppDelegate.swift */,
 			);
-			path = "RedIconBased-Underbar-SegmentedControl";
+			path = Support;
+			sourceTree = "<group>";
+		};
+		151DF1582AEFF11D00D5D55B /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				151DF1472AEFED6300D5D55B /* ViewController.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "RedIconBased-Underbar-SegmentedControl/Info.plist";
+				INFOPLIST_FILE = Source/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -307,7 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "RedIconBased-Underbar-SegmentedControl/Info.plist";
+				INFOPLIST_FILE = Source/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
