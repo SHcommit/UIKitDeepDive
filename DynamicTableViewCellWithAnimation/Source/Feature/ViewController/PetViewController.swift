@@ -17,6 +17,7 @@ final class PetViewController: UIViewController {
     $0.delegate = self
     $0.register(PetCell.self, forCellReuseIdentifier: PetCell.id)
     $0.backgroundColor = .white
+    $0.scrollIndicatorInsets = .init(top: 0, left: -2, bottom: 0, right: -2)
     return $0
   }(UITableView(frame: .zero, style: .plain))
   
