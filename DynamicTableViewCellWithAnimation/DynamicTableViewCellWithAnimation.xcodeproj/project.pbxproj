@@ -14,6 +14,11 @@
 		15B9281D2AF56769003A20D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B9281B2AF56769003A20D4 /* LaunchScreen.storyboard */; };
 		15B928292AF568A8003A20D4 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B928282AF568A8003A20D4 /* PaddingLabel.swift */; };
 		15B9282B2AF5690C003A20D4 /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9282A2AF5690C003A20D4 /* Bool+.swift */; };
+		15B928302AF569B0003A20D4 /* PetCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9282F2AF569B0003A20D4 /* PetCellDelegate.swift */; };
+		15B928332AF569CB003A20D4 /* PetViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B928322AF569CB003A20D4 /* PetViewController+Navigation.swift */; };
+		15B928352AF56A02003A20D4 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B928342AF56A02003A20D4 /* PetInfo.swift */; };
+		15B928372AF56A2D003A20D4 /* PetInfo+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B928362AF56A2D003A20D4 /* PetInfo+.swift */; };
+		15B928392AF56A8F003A20D4 /* PetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B928382AF56A8F003A20D4 /* PetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		15B9281E2AF56769003A20D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B928282AF568A8003A20D4 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		15B9282A2AF5690C003A20D4 /* Bool+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+.swift"; sourceTree = "<group>"; };
+		15B9282F2AF569B0003A20D4 /* PetCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCellDelegate.swift; sourceTree = "<group>"; };
+		15B928322AF569CB003A20D4 /* PetViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetViewController+Navigation.swift"; sourceTree = "<group>"; };
+		15B928342AF56A02003A20D4 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
+		15B928362AF56A2D003A20D4 /* PetInfo+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetInfo+.swift"; sourceTree = "<group>"; };
+		15B928382AF56A8F003A20D4 /* PetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +91,10 @@
 		15B928252AF56805003A20D4 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				15B928142AF56767003A20D4 /* PetViewController.swift */,
+				15B928312AF569C0003A20D4 /* Extension */,
+				15B9282E2AF56949003A20D4 /* Protocol */,
+				15B9282D2AF56937003A20D4 /* View */,
+				15B9282C2AF56930003A20D4 /* ViewController */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -100,6 +113,40 @@
 				15B928282AF568A8003A20D4 /* PaddingLabel.swift */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		15B9282C2AF56930003A20D4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15B928142AF56767003A20D4 /* PetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		15B9282D2AF56937003A20D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15B928342AF56A02003A20D4 /* PetInfo.swift */,
+				15B928382AF56A8F003A20D4 /* PetCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B9282E2AF56949003A20D4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				15B9282F2AF569B0003A20D4 /* PetCellDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		15B928312AF569C0003A20D4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				15B928322AF569CB003A20D4 /* PetViewController+Navigation.swift */,
+				15B928362AF56A2D003A20D4 /* PetInfo+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +220,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B928292AF568A8003A20D4 /* PaddingLabel.swift in Sources */,
+				15B928392AF56A8F003A20D4 /* PetCell.swift in Sources */,
+				15B928372AF56A2D003A20D4 /* PetInfo+.swift in Sources */,
 				15B928152AF56767003A20D4 /* PetViewController.swift in Sources */,
+				15B928302AF569B0003A20D4 /* PetCellDelegate.swift in Sources */,
 				15B928112AF56767003A20D4 /* AppDelegate.swift in Sources */,
 				15B928132AF56767003A20D4 /* SceneDelegate.swift in Sources */,
+				15B928352AF56A02003A20D4 /* PetInfo.swift in Sources */,
+				15B928332AF569CB003A20D4 /* PetViewController+Navigation.swift in Sources */,
 				15B9282B2AF5690C003A20D4 /* Bool+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
