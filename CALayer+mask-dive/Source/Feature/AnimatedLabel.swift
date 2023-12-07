@@ -8,6 +8,7 @@
 import UIKit
 
 final class AnimatedLabel: UILabel {
+  // MARK: - Properties
   private let gradientLayer: CAGradientLayer = {
     $0.startPoint = .init(x: 0, y: 0.5)
     $0.endPoint = .init(x: 1, y: 0.5)
@@ -31,7 +32,12 @@ final class AnimatedLabel: UILabel {
     }
   }
   
+  convenience init() {
+    self.init(frame: .zero)
+    translatesAutoresizingMaskIntoConstraints = false
+  }
   
+  // MARK: - Lifecycle
   override func layoutSubviews() {
     super.layoutSubviews()
     gradientLayer.frame = CGRect(
