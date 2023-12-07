@@ -8,10 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+  override func loadView() {
+    super.loadView()
+    view.backgroundColor = .systemCyan
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemPink
+    let chevronView = AnimatedChevronView()
+    let label = AnimatedLabel()
+    label.text = "GRADIENT WITH MASK"
+    [chevronView, label].forEach(view.addSubview(_:))
+    NSLayoutConstraint.activate([
+      chevronView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      chevronView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+      label.centerXAnchor.constraint(equalTo: view.centerXAnchor)]) 
   }
 }
 
