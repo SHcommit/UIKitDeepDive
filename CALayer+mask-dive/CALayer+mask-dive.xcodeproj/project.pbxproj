@@ -13,6 +13,8 @@
 		151794C22B2204EF00DC2785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151794C12B2204EF00DC2785 /* Assets.xcassets */; };
 		151794C52B2204EF00DC2785 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151794C32B2204EF00DC2785 /* LaunchScreen.storyboard */; };
 		151794CF2B22064F00DC2785 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151794CE2B22064F00DC2785 /* Resource.xcassets */; };
+		151794D12B22363F00DC2785 /* AnimatedChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151794D02B22363F00DC2785 /* AnimatedChevronView.swift */; };
+		1596FF1F2B2240CD0062F17E /* AnimatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1596FF1E2B2240CD0062F17E /* AnimatedLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		151794C42B2204EF00DC2785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151794C62B2204EF00DC2785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		151794CE2B22064F00DC2785 /* Resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resource.xcassets; sourceTree = "<group>"; };
+		151794D02B22363F00DC2785 /* AnimatedChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedChevronView.swift; sourceTree = "<group>"; };
+		1596FF1E2B2240CD0062F17E /* AnimatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				151794BC2B2204ED00DC2785 /* ViewController.swift */,
+				151794D02B22363F00DC2785 /* AnimatedChevronView.swift */,
+				1596FF1E2B2240CD0062F17E /* AnimatedLabel.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -154,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1596FF1F2B2240CD0062F17E /* AnimatedLabel.swift in Sources */,
 				151794BD2B2204ED00DC2785 /* ViewController.swift in Sources */,
 				151794B92B2204ED00DC2785 /* AppDelegate.swift in Sources */,
 				151794BB2B2204ED00DC2785 /* SceneDelegate.swift in Sources */,
+				151794D12B22363F00DC2785 /* AnimatedChevronView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
