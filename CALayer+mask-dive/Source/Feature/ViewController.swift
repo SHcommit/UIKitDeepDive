@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     [chevronView, label].forEach(view.addSubview(_:))
     NSLayoutConstraint.activate([
       chevronView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      chevronView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+      chevronView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200),
+      label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -300),
       label.centerXAnchor.constraint(equalTo: view.centerXAnchor)]) 
   }
 }
