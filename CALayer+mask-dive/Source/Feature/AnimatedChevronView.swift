@@ -31,7 +31,10 @@ final class AnimatedChevronView: UIView {
       isGradientLayerMaskSet.toggle()
       let maskLayer: CALayer = {
         $0.backgroundColor = UIColor.clear.cgColor
-        $0.frame = .init(x: bounds.origin.x + bounds.width/2 - 14, y: bounds.origin.y + 20, width: 28, height: 40)
+        $0.frame = .init(
+          x: bounds.origin.x + bounds.width/2 - 14,
+          y: bounds.origin.y + 20, 
+          width: 28, height: 40)
         guard let image = UIImage(named: "double-chevron") else {
           print("nono")
           return .init()
