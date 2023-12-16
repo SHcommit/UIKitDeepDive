@@ -12,21 +12,21 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .yellow
-    let button = UIButton(primaryAction: .init(handler: { [weak self] _ in
-      self?.showCardView()
-    }))
+    let button = UIButton(primaryAction: .init(handler: { [weak self] _ in self?.showCardView() }))
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle("Show card view", for: .normal)
     view.addSubview(button)
     NSLayoutConstraint.activate([
       button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      button.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
+      button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)])
   }
   
   func showCardView() {
     let dynamicCardView = RotationCardView()
     view.addSubview(dynamicCardView)
-    bottomConstraint = dynamicCardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 250)
+    bottomConstraint = dynamicCardView.bottomAnchor.constraint(
+      equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+      constant: dynamicCardView.intrinsicContentSize.height + 50)
     NSLayoutConstraint.activate([
       dynamicCardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       bottomConstraint])

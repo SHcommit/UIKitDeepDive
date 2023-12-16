@@ -16,8 +16,7 @@ final class RotationCardView: UIView {
     return $0
   }(CALayer())
   
-  private lazy var gradientLabel = GradientAnimatedLabel()
-  
+  // MARK: - Lifecycle
   override init(frame: CGRect) {
     super.init(frame: frame)
     layer.addSublayer(imageLayer)
@@ -52,6 +51,7 @@ final class RotationCardView: UIView {
   
   // MARK: - Helpers
   func setGradientLabel() {
+    let gradientLabel = GradientAnimatedLabel()
     let minimumTopSpacing = 5.0
     gradientLabel.text = "# 귀여운 고양이 카드"
     gradientLabel.alpha = 0
@@ -59,15 +59,13 @@ final class RotationCardView: UIView {
     let gradientLabelBottomConstraint = gradientLabel.topAnchor.constraint(
       equalTo: bottomAnchor,
       constant: minimumTopSpacing - gradientLabel.intrinsicContentSize.height/2)
-    // 자식layoutIfNeeded 경우 예를들어 초기 width 200 -> intrinsic으로 줄어드는 경우. 에니메이션할떄.
-//    let gradientWidthConstraint = gradientLabel.widthAnchor.constraint(equalToConstant: 200)
     NSLayoutConstraint.activate([
       gradientLabelBottomConstraint,
       gradientLabel.trailingAnchor.constraint(equalTo: trailingAnchor)])
-    layoutIfNeeded()
+    self.layoutIfNeeded()
     UIView.animate(withDuration: 0.2, animations: {
-      gradientLabelBottomConstraint.constant = 5
-      self.gradientLabel.alpha = 1
+      gradientLabelBottomConstraint.constant = minimumTopSpacing
+      gradientLabel.alpha = 1
       self.layoutIfNeeded()
     })
   }
