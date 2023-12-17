@@ -5,6 +5,7 @@
 - 참고로 gradient animation은 core animation 사용해야합니닷
 - 이미지는 픽사베이에서 다운받았습니다!!
 
+- mask + 위 개념들 정리 <a href="https://dev-with-precious-dreams.tistory.com/281">블로그 링크</a>
 
 <img src="https://github.com/SHcommit/UIKitDeepDive/assets/96910404/6d7131e4-d36c-42f9-b26b-265334613bb2"> |
 |:-:|
