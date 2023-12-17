@@ -5,6 +5,7 @@
 - UIView 의 life cycle을 좀 더 깊게 탐구 해볼 수 있습니당
 - 이미지는 픽사베이에서 다운받았습니다!!
 
+개념 정리 블로그 포스트 링크 <a href="https://dev-with-precious-dreams.tistory.com/282">바로가기</a>
 
 <img src="https://github.com/SHcommit/UIKitDeepDive/assets/96910404/1e044de9-3cf2-43ee-95fa-4592a264b52e"> |
 |:-:|
